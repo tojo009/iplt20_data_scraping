@@ -1,0 +1,88 @@
+-----------------------------------------------------------batting_data-----------------------------------------------------------------------
+
+DELIMITER //
+CREATE PROCEDURE insert_batting_data(
+            IN in_batsmen_name VARCHAR(100),
+            IN in_dismissal VARCHAR(100),
+            IN in_runs INT,
+            IN in_balls_faced INT,
+            IN in_strike_rate INT,
+            IN in_fours INT,
+            IN in_sixes INT,
+            IN in_year INT,
+            IN in_match_number INT,
+            IN in_innings INT
+            )
+    BEGIN
+        INSERT INTO batting_data(batsmen_name,dismissal,runs,balls_faced,strike_rate,fours,sixes,year,match_number,innings)
+            VALUES(in_batsmen_name,in_dismissal,in_runs,in_balls_faced,in_strike_rate,in_fours,in_sixes,in_year,in_match_number,in_innings);
+    END
+//DELIMITER;
+            
+            call insert_batting_data("tojo","test dismissal",50,23,200.23,5,5,2008,25,1)
+-----------------------------------------------------------batting_data-------------------------------------------------------------------------
+
+
+DELIMITER //
+CREATE PROCEDURE insert_match_data(
+            IN in_super_over VARCHAR(10),
+            IN in_team_a_name VARCHAR(100),
+            IN in_team_a_super_over_score INT,
+            IN in_team_a_super_over_wickets INT,
+            IN in_team_a_score INT,
+            IN in_team_a_wickets INT,
+            IN in_team_a_runrate FLOAT,
+            IN in_team_a_overs_played FLOAT,
+            IN in_team_a_total_overs FLOAT,
+            IN in_team_b_name VARCHAR(100),
+            IN in_team_b_super_over_score INT,
+            IN in_team_b_super_over_wickets INT,
+            IN in_team_b_score INT,
+            IN in_team_b_wickets INT,
+            IN in_team_b_runrate FLOAT,
+            IN in_team_b_overs_played FLOAT,
+            IN in_team_b_total_overs FLOAT,
+            IN in_match_result VARCHAR(100),
+            IN in_match_type VARCHAR(100),
+            IN in_winner VARCHAR(100),
+            IN in_victory_margin_by_runs INT,
+            IN in_victory_margin_by_wickets INT,
+            IN in_match_number INT,
+            IN in_year INT
+            )
+        BEGIN
+            INSERT INTO match_data(super_over,team_a_name,team_a_super_over_score,team_a_super_over_wickets,
+                                   team_a_score,team_a_wickets,team_a_runrate,team_a_overs_played,
+                                   team_a_total_overs,team_b_name,team_b_super_over_score,team_b_super_over_wickets,
+                                   team_b_score,team_b_wickets,team_b_runrate,team_b_overs_played,team_b_total_overs,
+                                   match_result,match_type,winner,victory_margin_by_runs,victory_margin_by_wickets,match_number,year)
+            VALUES(in_super_over,in_team_a_name,in_team_a_super_over_score,in_team_a_super_over_wickets,
+                   in_team_a_score,in_team_a_wickets,in_team_a_runrate,in_team_a_overs_played,
+                   in_team_a_total_overs,in_team_b_name,in_team_b_super_over_score,in_team_b_super_over_wickets,
+                   in_team_b_score,in_team_b_wickets,in_team_b_runrate,in_team_b_overs_played,in_team_b_total_overs,
+                   in_match_result,in_match_type,in_winner,in_victory_margin_by_runs,in_victory_margin_by_wickets,
+                   in_match_number,in_year);
+        END
+    //DELIMITER;
+    
+    CALL insert_match_data()
+    
+-------------bowling_data----------
+
+DELIMITER //
+CREATE PROCEDURE insert_bowling_data(
+            IN in_bowler_name VARCHAR(100),
+            IN in_overs FLOAT,
+            IN in_runs_given INT,
+            IN in_wickets INT,
+            IN in_economy FLOAT,
+            IN in_dot_balls INT,
+            IN in_innings INT,
+            IN in_match_number INT,
+            IN in_year INT
+            )
+        BEGIN
+            INSERT INTO bowling_data(bowler_name,overs,runs_given,wickets,economy,dot_balls,innings,match_number,year)
+            VALUES(in_bowler_name,in_overs,in_runs_given,in_wickets,in_economy,in_dot_balls,in_innings,in_match_number,in_year);
+        END
+    //DELIMITER;

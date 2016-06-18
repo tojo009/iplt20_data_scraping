@@ -1,0 +1,71 @@
+-----batting_data--------
+
+CREATE TABLE batting_data(
+                id INT NOT NULL AUTO_INCREMENT,
+                batsmen_name VARCHAR(100) NOT NULL,
+                dismissal VARCHAR(100) NOT NULL,
+                runs INT NOT NULL,
+                balls_faced INT NOT NULL,
+                strike_rate FLOAT NOT NULL,
+                fours INT NOT NULL,
+                sixes INT NOT NULL,
+                year INT NOT NULL,
+                match_number INT NOT NULL,
+                innings INT NOT NULL,
+                PRIMARY KEY (id)
+                );
+-----batting_data----------
+
+
+---------match_data----------
+CREATE TABLE match_data(
+                id INT NOT NULL AUTO_INCREMENT,
+                super_over VARCHAR(10) NOT NULL,
+                team_a_name VARCHAR(100) NOT NULL,
+                team_a_super_over_score INT,
+                team_a_super_over_wickets INT,
+                team_a_score INT,
+                team_a_wickets INT,
+                team_a_runrate FLOAT,
+                team_a_overs_played FLOAT,
+                team_a_total_overs FLOAT,
+                team_b_name VARCHAR(100) NOT NULL,
+                team_b_super_over_score INT,
+                team_b_super_over_wickets INT,
+                team_b_score INT,
+                team_b_wickets INT,
+                team_b_runrate FLOAT,
+                team_b_overs_played FLOAT,
+                team_b_total_overs FLOAT,
+                match_result VARCHAR(100) NOT NULL,
+                match_type VARCHAR(100) NOT NULL,
+                winner VARCHAR(100) NOT NULL,
+                victory_margin_by_runs INT NOT NULL,
+                victory_margin_by_wickets INT NOT NULL,
+                match_number INT NOT NULL,
+                year INT NOT NULL,
+                PRIMARY KEY (id)
+                );
+
+
+---------match_data----------
+
+
+
+--------bowling_data-----
+
+CREATE TABLE bowling_data(
+                id INT NOT NULL AUTO_INCREMENT,
+                bowler_name VARCHAR(100) NOT NULL,
+                overs FLOAT NOT NULL,
+                runs_given INT NOT NULL,
+                wickets INT NOT NULL,
+                economy FLOAT NOT NULL,
+                dot_balls INT NOT NULL,
+                innings INT NOT NULL,
+                match_number INT NOT NULL,
+                year INT NOT NULL,
+                PRIMARY KEY(id)
+                );
+                
+-------bowling_data---------
