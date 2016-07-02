@@ -1,6 +1,6 @@
 -----batting_data--------
 
-CREATE TABLE batting_data_duplicate(
+CREATE TABLE batting_data(
                 id INT NOT NULL AUTO_INCREMENT,
                 batsmen_name VARCHAR(100) NOT NULL,
                 dismissal VARCHAR(100) NOT NULL,
@@ -72,7 +72,7 @@ CREATE TABLE bowling_data(
 
 --------Innings Data--------
 
-CREATE TABLE innings_data1(
+CREATE TABLE innings_data(
                 id INT NOT NULL,
                 first_batting_team VARCHAR(100),
                 second_batting_team VARCHAR(100),
