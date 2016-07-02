@@ -1,0 +1,44 @@
+------COPYING TABLES-----------
+
+INSERT INTO innings_data_duplicate SELECT * FROM innings_data;
+
+------------------------------
+
+
+//Alter batting_data table to include match_data_id which will be year appended with match number
+
+-------------->ALTER TABLE batting_data ADD COLUMN match_data_id INT; 
+
+
+
+
+// Update the batting_data table with match_data_id
+
+-------------->UPDATE batting_data SET match_data_id = ((year*100)+match_number);
+
+
+
+
+// Update the bowling_data table also in same way
+
+
+
+
+//Update match_data table id with year appended with match_number
+
+-------------->UPDATE match_data SET id = ((year*100)+match_number);
+
+
+
+//Add team to each batsmen innings row in batting_data table and do same for bowlers
+
+---------------->ALTER TABLE batting_data ADD COLUMN team VARCHAR(100); 
+
+--------------->UPDATE batting_data
+                INNER JOIN innings_data ON batting_data.match_data_id = innings_data.id 
+                SET batting_data.team = IF(innings=1,innings_data.first_batting_team,innings_data.second_batting_team);
+                
+
+                
+                
+                

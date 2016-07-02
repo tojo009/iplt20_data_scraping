@@ -86,3 +86,18 @@ CREATE PROCEDURE insert_bowling_data(
             VALUES(in_bowler_name,in_overs,in_runs_given,in_wickets,in_economy,in_dot_balls,in_innings,in_match_number,in_year);
         END
     //DELIMITER;
+    
+--------------------innings_data------------
+
+DELIMITER //
+CREATE PROCEDURE insert_innings_data(
+          IN in_id INT,
+          IN in_first_batting_team VARCHAR(100),
+          IN in_second_batting_team VARCHAR(100)
+          )
+      BEGIN
+         INSERT INTO innings_data(id,first_batting_team,second_batting_team)
+         VALUES(in_id,in_first_batting_team,in_second_batting_team);
+      END
+  //DELIMITER;
+    

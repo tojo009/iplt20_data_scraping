@@ -16,7 +16,7 @@ year_array.each do |year|
             browser.link(:text,"Scorecard").when_present.click
 
             document = Nokogiri::HTML(browser.html)
-            document.css('span[class="dismissalSmall"]').remove
+            document.css('span[class="dismissalSmall"]').remove #Extra dismissal span present with batsmen name
             first_innings_end  = 0
             second_innings_end = 0
             first_innings_end  = document.css('table[class="batsmen"]')[0].css('tr[class="batsmanInns player-popup-link"]').length
@@ -24,7 +24,7 @@ year_array.each do |year|
             begin # rescue block to ensure its not going to last rescue but contine with populating first innings data
              second_innings_end = document.css('table[class="batsmen"]')[1].css('tr[class="batsmanInns player-popup-link"]').length
              rescue
-              puts "----No Second Innigs Played----"
+              puts "----No Second Innings Played----"
             end
             
             innings = 1
