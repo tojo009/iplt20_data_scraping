@@ -6,7 +6,7 @@ require 'mysql'
 connection = Mysql.new('localhost','root','password','ipl_dummy_db') #DataBase connection details
 browser    = Watir::Browser.new(:phantomjs)
 year_array = (2008..2016).to_a
-matches    = (1..75).to_a
+matches    = (1..76).to_a
 year_array.each do |year|
     matches.each do |match_number|
         
